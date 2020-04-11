@@ -10,15 +10,24 @@ export class App extends Component {
 		text: "",
 	};
 
+	handleChange = () => console.log("Handle Change");
 
-  render() {
+	handleSubmit = (event) => {
+		event.preventDefault();
+		console.log("Handle Submit");
+	};
+
+	render() {
 		console.log(this.state.list, "state-list");
 
 		return (
 			<div className="App">
 				<h1>Your List</h1>
 				<List listItems={this.state.list} />
-				<Form handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+				<Form
+					handleChange={this.handleChange}
+					handleSubmit={this.handleSubmit}
+				/>
 			</div>
 		);
 	}
