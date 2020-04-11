@@ -33,7 +33,7 @@ export class App extends Component {
 
 		return (
 			<div className="App">
-				<h1>Your List</h1>
+				<h1>Your Shopping List</h1>
 				<List listItems={this.state.list} />
 				<Form
 					handleChange={this.handleChange}
