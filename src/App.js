@@ -10,12 +10,6 @@ export class App extends Component {
 		text: "",
 	};
 
-  handleChange = () => console.log("Handle Change");
-  
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Handle Submit");
-  }
 
   render() {
 		console.log(this.state.list, "state-list");
