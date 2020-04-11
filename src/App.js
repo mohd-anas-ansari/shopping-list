@@ -6,16 +6,27 @@ import List from "./components/List";
 
 export class App extends Component {
 	state = {
-		list: ["anas", "ansari"],
+		list: [],
 		text: "",
 	};
 
-	handleChange = () => console.log("Handle Change");
+  handleChange = (event) => {
+    this.setState({text: event.target.value})
+  }
 
 	handleSubmit = (event) => {
-		event.preventDefault();
-		console.log("Handle Submit");
-	};
+    event.preventDefault();
+    
+    const newInput = {
+      text: this.state.text,
+      id: Date.now()
+    }
+
+    this.setState(state => ({
+      list: this.state.list.concat(newInput),
+      text: ''  
+    }))
+  };
 
 	render() {
 		console.log(this.state.list, "state-list");
@@ -26,7 +37,8 @@ export class App extends Component {
 				<List listItems={this.state.list} />
 				<Form
 					handleChange={this.handleChange}
-					handleSubmit={this.handleSubmit}
+          handleSubmit={this.handleSubmit}
+          text={this.state.text}
 				/>
 			</div>
 		);
